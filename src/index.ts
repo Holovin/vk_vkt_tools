@@ -1,8 +1,9 @@
-import { Log } from './helpers/logger';
 import { Tasks } from './lib/tasks';
+import { Logger } from 'lib-dd-helpers';
+
 
 (async () => {
-    const log = Log.getLogger('main');
+    const log = Logger.getInstance().getLogger('main');
     const task = new Tasks();
 
     await task.checkToken();

@@ -1,7 +1,6 @@
-import { Log } from '../helpers/logger';
-import { Logger } from 'winston';
 import { LibStatus } from '../helpers/status';
 import { Got } from 'got';
+import { Logger, LoggerType } from 'lib-dd-helpers';
 
 class VkLib {
     private static readonly VK_API_VERSION = '5.131';
@@ -10,7 +9,7 @@ class VkLib {
     private readonly loginUrl: string;
 
     private got: Got;
-    private log: Logger;
+    private log: LoggerType;
     private user;
     private isLogged: boolean;
 
@@ -24,7 +23,7 @@ class VkLib {
     }
 
     constructor(got, { token, loginUrl }) {
-        this.log = Log.getLogger('vk');
+        this.log = Logger.getInstance().getLogger('VK');
 
         this.tokenVk = token;
         this.loginUrl = loginUrl;

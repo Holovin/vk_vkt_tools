@@ -17,6 +17,7 @@
   "dependencies": {
     "fs-jetpack": "^3.1.0",
     "got": "^11.7.0",
+    "lib-dd-helpers": "git+https://github.com/Holovin/lib-dd-helpers.git",
     "nconf": "^0.10.0",
     "pretty-error": "^2.1.1",
     "winston": "^3.3.3"

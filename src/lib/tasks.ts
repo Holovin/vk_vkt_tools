@@ -1,20 +1,18 @@
 import * as jetpack from 'fs-jetpack';
 import got, { Got } from 'got';
 import { VkLib } from './vkLib';
-import { Config, DConfig } from '../helpers/config';
-import { Logger } from 'winston';
-import { Log } from '../helpers/logger';
 import { LibStatus } from '../helpers/status';
+import { Config, Logger, LoggerType } from 'lib-dd-helpers';
 
 class Tasks {
     private readonly got: Got;
     private config: Config;
     private vkLib: VkLib;
-    private log: Logger;
+    private log: LoggerType;
 
     constructor() {
-        this.log = Log.getLogger('tasks');
-        this.config = DConfig;
+        this.log = Logger.getInstance().getLogger('tasks');
+        this.config = Config.getInstance();
 
         this.got = got.extend({
             headers: {
